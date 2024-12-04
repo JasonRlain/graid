@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Modal, Select, Form, Space } from "antd";
 import { useNavigate, useSearchParams } from "react-router";
 import { FilterTwoTone, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
@@ -146,8 +146,7 @@ export default function AntdFilterModal() {
     const removeUndefined = values.filter.filter(
       (item) => item.value !== undefined
     );
-
-    // setConditions(filters);
+    form.setFieldsValue({ filter: removeUndefined });
     handleApplyFilters(filters);
     setInitForm(removeUndefined);
 
